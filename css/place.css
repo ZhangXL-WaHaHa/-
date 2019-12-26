@@ -1,0 +1,117 @@
+@font-face {
+	font-family:"字体1";
+	src: url("font-family/手书体2.ttf"),url("font-family/手书体2.eot");
+}
+.show{
+	width: 100%;
+	height: 600px;
+	background: url(../img/bg1.jpg);
+}
+
+.message{
+	position: absolute;
+	margin-left: 10%;
+	width:80%;
+	height: 560px;
+	background: white;
+}
+
+.dili{
+	position: relative;
+	width: 40%;
+	float: left;
+	height: 260px;
+	left: 2px;
+	top: 2px;
+	border-bottom: gray dotted 5px;
+}
+
+.dili2{
+	position: relative;
+	width: 40%;
+	float: left;
+	height: 560px;
+	left: 2px;
+	top: 2px;
+	border-bottom: gray dotted 5px;
+}
+
+.trip{
+	position: relative;
+	left: 2px;
+	top: 2px;
+	width: 40%;
+	float: left;
+	height: 300px;
+}
+
+.shebei{
+	position: relative;
+	float: right;
+	right: 2px;
+	width: 55%;
+	height: 560px;
+	border: gray dotted 1px;
+}
+
+.head{
+	position: relative;
+	left: 5%;
+	width: 90%;
+	padding: 5px;
+	font-size: 30px;
+	color: black;
+	font-family: "黑体";
+	border-bottom: dotted skyblue 1px;
+}
+.content{
+	position: relative;
+	width: 90%;
+	left: 5%;
+	top: 10px;
+}
+
+.dili-img{
+	float: left;
+	width: 60%;
+	height: 150px;
+}
+.msg{
+	position: relative;
+	font-family: "字体1";
+	font-size: 17.5px;
+	color: darkblue;
+	text-indent: 20px;
+	z-index: 2;
+}
+
+.msg span{
+	font-size: 16px;
+	color: royalblue;
+}
+
+.black{
+	color: midnightblue;
+}
+
+.black::first-letter{
+	font-size: 25px;
+}
+
+/*替换图片，衬在文字下方*/
+#extraDiv1{
+	position:absolute;
+	right:120px;
+	top:350px;
+	width:150px;
+	height:120px;
+	background-image:url(../img/bg0.gif);
+}
+
+.message2{
+	position: absolute;
+	margin-left: 10%;
+	width:80%;
+	height: 560px;
+	background: white;
+}

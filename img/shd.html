@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="../js/JQ.js"></script>
+		<style>
+			#container{
+				width:1226px;
+				height:460px;
+				position:relative;
+				overflow:hidden;
+				border-radius:10px;
+			}
+			.item{
+				position:absolute;
+			}
+			 
+			#tabs{
+				position:absolute;
+				right:30px;
+				bottom:20px;
+			}
+			.tab{
+				float:left;
+				margin-right:10px;
+				width:6px;
+				height:6px;
+				border:3px solid rgba(184,178,182,.8);
+				border-radius:50%;
+				background:#989196;
+				cursor:pointer;
+			}
+			.active{
+				background:#fff;
+				border-color:#999497;
+			}
+			.btn{
+				position:absolute;
+				top:50%;
+				margin-top:-35px;
+				width:40px;
+				height:70px;
+				color:#d6d3d5;
+				font-size:36px;
+				line-height:70px;
+				text-align:center;
+				cursor:pointer;
+			}
+			.btn:hover{
+				background:rgba(127,120,125,0.8);
+			}
+			.prev{
+				position:absolute;
+				left:235px;
+				border-radius:0 5px 5px 0;	
+			}
+			.next{
+				position:absolute;
+				right:0;
+				border-radius:5px 0 0 5px;
+			}
+		</style>
+		<script>
+			$(document).ready(function(){
+			   var i = 0 ;
+			   var timer;
+			 
+			  //用jquery方法设置第一张图片显示，其余隐藏
+			  $('.item').eq(0).show().siblings('.item').hide();
+			   
+			  //调用showTime()函数（轮播函数）
+			  showTime();
+			   
+			  //当鼠标经过下面的数字时，触发两个事件（鼠标悬停和鼠标离开）
+			  $('.tab').hover(function(){
+			    //获取当前i的值，并显示，同时还要清除定时器
+			    i = $(this).index();
+			    Show();
+			    clearInterval(timer);
+			  },function(){
+			    //
+			    showTime();
+			  });
+			   
+			  //鼠标点击左侧的箭头
+			  $('.prev').click(function(){
+			    clearInterval(timer);
+			    if(i == 0){
+			      i = 5;//注意此时i的值
+			    }
+			    i--;
+			    Show();
+			    showTime();
+			  });
+			   
+			  //鼠标点击右侧的箭头
+			  $('.next').click(function(){
+			    clearInterval(timer);
+			    if(i == 4){
+			      i = -1;//注意此时i的值
+			    }
+			    i++;
+			    Show();
+			    showTime();
+			  });
+			 
+			   
+			//创建一个showTime函数
+			function showTime(){
+			  //定时器
+			  timer = setInterval(function(){
+			    //调用一个Show()函数
+			    Show();
+			    i++;
+			    //当图片是最后一张的后面时，设置图片为第一张
+			    if(i==5){
+			      i=0;
+			    }
+			  },2000);
+			}
+			 
+			 
+			//创建一个Show函数
+			function Show(){
+			  //在这里可以用其他jquery的动画
+			  $('.item').eq(i).fadeIn(300).siblings('.item').fadeOut(300);
+			   
+			  //给.tab创建一个新的Class为其添加一个新的样式，并且要在css代码中设置该样式
+			  $('.tab').eq(i).addClass('active').siblings('.tab').removeClass('active');
+			   
+			}
+			  
+			});
+		</script>
+	</head>
+	<body>
+		<div id="container">
+		            <a class="item" href="#"><img src="body-image.png"/></a>
+		            <a class="item" href="#"><img src="body-image.png"/></a>
+		            <a class="item" href="#"><img src="body.jpeg"/></a>
+		       
+		            <div class="btn prev"><</div>
+		            <div class="btn next">></div>
+		       
+		            <ul id="tabs">
+		              <li class="tab active"></li>
+		              <li class="tab"></li>
+		              <li class="tab"></li>
+		              <li class="tab"></li>
+		              <li class="tab"></li>
+		            </ul>
+		</div>
+	</body>
+</html>
